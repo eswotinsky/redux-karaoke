@@ -53,7 +53,12 @@ const lyricChangeReducer = (state = initialState.songsById, action) => {
   }
 
 const songChangeReducer = (state = initialState.currentSongId, action) => {
-  return state;
+  switch (action.type) {
+    case 'CHANGE_SONG':
+      return action.newSelectedSongId
+    default:
+      return state;
+  }
 }
 
 //Redux Store
